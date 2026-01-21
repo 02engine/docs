@@ -10,11 +10,11 @@ Let's start by creating a very simple extension. This extension just adds a bloc
 
 <ExtensionCode title="hello-world">{require('!raw-loader!@site/static/example-extensions/hello-world.js')}</ExtensionCode>
 
-The above is a standard component we will use for showing extension code. Make note of the "Try this extension" button by the title -- that link will let you see what this extension does without having to do anything locally. Note that these extensions are primarily for demonstrating API features; they are not intended to be actually used in projects. There will almost always be another extension on [extensions.turbowarp.org](https://extensions.turbowarp.org/) that does the same thing, but better.
+The above is a standard component we will use for showing extension code. Make note of the "Try this extension" button by the title -- that link will let you see what this extension does without having to do anything locally. Note that these extensions are primarily for demonstrating API features; they are not intended to be actually used in projects. There will almost always be another extension on [extensions.02engine.org](https://extensions.02engine.org/) that does the same thing, but better.
 
 If you're just using simple files to develop extensions, save this code into a file called "hello-world.js". If you're using a local HTTP server, save the code in a file called "hello-world.js" that the server will let you access.
 
-Now, go to the TurboWarp editor, click on the add extension button (a + next to 2 blocks), scroll to the bottom of the Scratch section, and choose the "Custom Extension" option. Either enter the full URL to your local HTTP server or use one of the other tabs to select your file or paste in code. For now, **do not** check the "Run extension without sandbox" box.
+Now, go to the 02Engine editor, click on the add extension button (a + next to 2 blocks), scroll to the bottom of the Scratch section, and choose the "Custom Extension" option. Either enter the full URL to your local HTTP server or use one of the other tabs to select your file or paste in code. For now, **do not** check the "Run extension without sandbox" box.
 
 After a second, an extension named "It works!" should appear in the sidebar. If it doesn't appear, open up your developer tools and look for any warnings in the console. Some of the most common errors are:
 
@@ -97,7 +97,7 @@ While other BlockTypes do exist, they do not work well and will not be discussed
 
 This defines the function that will run the block with the opcode "hello". In this case, our block is very simple and just returns a string. REPORTER blocks are expected to return a string, number, or boolean, and BOOLEAN blocks are expected to only return a boolean. Note that `null`, `undefined`, lists, and objects are not expected return values for these blocks.
 
-When you want to change the extension, simply modify the extension and reload the page. Here's a tip to make your life easier: You can use the `?extension=` URL parameter to load an extension automatically instead of requiring going into the library. For example, if your extension URL is http://localhost:8080/hello-world.js, you could use https://turbowarp.org/editor?extension=http://localhost:8080/hello-world.js to load it automatically.
+When you want to change the extension, simply modify the extension and reload the page. Here's a tip to make your life easier: You can use the `?extension=` URL parameter to load an extension automatically instead of requiring going into the library. For example, if your extension URL is http://localhost:8080/hello-world.js, you could use https://02engine.org/editor?extension=http://localhost:8080/hello-world.js to load it automatically.
 
 If you observe that your changes aren't being applied when you refresh, try your browser's "hard refresh" or "refresh without cache" shortcuts.
 

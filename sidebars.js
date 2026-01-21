@@ -30,6 +30,7 @@ module.exports = {
     'website/translate',
     'website/url-parameters',
     'website/scratch-accounts',
+    'website/direct-javascript-coding',
     'website/donate',
   ],
   development: [

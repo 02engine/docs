@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 # Rich Presence
 
-TurboWarp Desktop supports Rich Presence, which can display the name of the project you're working on and how long you've been working on it on your profile in a certain chat app.
+02Engine Desktop supports Rich Presence, which can display the name of the project you're working on and how long you've been working on it on your profile in a certain chat app.
 
 import example from './rich-presence-example.png';
 import settingsMenu from './rich-presence-settings-menu.png';
@@ -34,39 +34,39 @@ It may take up to 15 seconds for your status to appear, update, or disappear. If
 
 ### Windows {#windows}
 
-Rich Presence works in Windows regardless of how you installed TurboWarp Desktop or Chat App.
+Rich Presence works in Windows regardless of how you installed 02Engine Desktop or Chat App.
 
 ### macOS {#mac}
 
 :::warning
-Rich Presence will not work if TurboWarp Desktop is installed from the Mac App Store.
+Rich Presence will not work if 02Engine Desktop is installed from the Mac App Store.
 :::
 
 ### Linux {#linux}
 
-For best results, install TurboWarp Desktop as a native app using the .deb package, Debian repository, Arch User Repository, AppImage, or tarball. TurboWarp Desktop installed as a Flatpak may require manual permission overrides. TurboWarp Desktop installed as a Snap does not work at all. See the table below for more details:
+For best results, install 02Engine Desktop as a native app using the .deb package, Debian repository, Arch User Repository, AppImage, or tarball. 02Engine Desktop installed as a Flatpak may require manual permission overrides. 02Engine Desktop installed as a Snap does not work at all. See the table below for more details:
 
 | | Chat App Native | Chat App Flatpak | Chat App Snap |
 | :-: | :-: | :-: | :-: |
-| **TurboWarp Desktop Native** | ✅ | ✅ | ✅ |
-| **TurboWarp Desktop Flatpak** | See commands below | ✅ | See commands below |
-| **TurboWarp Desktop Snap** | ❌ | ❌ | ❌ |
+| **02Engine Desktop Native** | ✅ | ✅ | ✅ |
+| **02Engine Desktop Flatpak** | See commands below | ✅ | See commands below |
+| **02Engine Desktop Snap** | ❌ | ❌ | ❌ |
 
-For the Flatpak version of TurboWarp Desktop, you may need to run these commands in a terminal and restart TurboWarp Desktop for Rich Presence to function:
+For the Flatpak version of 02Engine Desktop, you may need to run these commands in a terminal and restart 02Engine Desktop for Rich Presence to function:
 
 ```bash
 # For Chat App Native
-flatpak override org.turbowarp.TurboWarp --user --filesystem=xdg-run/$(printf "\x64\x69\x73\x63\x6f\x72\x64")-ipc-{0..9}
+flatpak override org.02Engine.02Engine --user --filesystem=xdg-run/$(printf "\x64\x69\x73\x63\x6f\x72\x64")-ipc-{0..9}
 # For Chat App Snap
-flatpak override org.turbowarp.TurboWarp --user --filesystem=xdg-run/snap.$(printf "\x64\x69\x73\x63\x6f\x72\x64"):create
+flatpak override org.02Engine.02Engine --user --filesystem=xdg-run/snap.$(printf "\x64\x69\x73\x63\x6f\x72\x64"):create
 ```
 
-There is still a small caveat: Rich Presence may not work if TurboWarp Desktop is started before Chat App.
+There is still a small caveat: Rich Presence may not work if 02Engine Desktop is started before Chat App.
 
 These permissions can be later revoked with:
 
 ```bash
-flatpak override org.turbowarp.TurboWarp --user --reset
+flatpak override org.02Engine.02Engine --user --reset
 ```
 
 ### Chat App modifications {#mods}

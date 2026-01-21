@@ -3,16 +3,16 @@ slug: /how
 hide_table_of_contents: true
 ---
 
-# How TurboWarp runs Scratch projects 10-100x faster
+# How 02Engine runs Scratch projects 10-100x faster
 
-TurboWarp uses a *compiler* while Scratch uses an *interpreter*. This allows TurboWarp to run somewhere between 10-100x faster depending on the project, but it makes live script editing [impracticable](#live-script-editing).
+02Engine uses a *compiler* while Scratch uses an *interpreter*. This allows 02Engine to run somewhere between 10-100x faster depending on the project, but it makes live script editing [impracticable](#live-script-editing).
 
 <table style={{textAlign: "center"}}>
     <thead>
         <tr>
             <th>Test</th>
             <th>Scratch</th>
-            <th>TurboWarp</th>
+            <th>02Engine</th>
         </tr>
     </thead>
     <tbody>
@@ -113,7 +113,7 @@ Whenever Scratch executes any block, it has to do a lot of things:
 
 The interpreter overhead is added on top of the overhead of JavaScript itself. As this code involves many dynamic types, it can be hard for the JavaScript JIT to optimize it.
 
-TurboWarp's compiler removes all of that overhead by converting scripts directly to JavaScript functions. For example, the above script becomes:
+02Engine's compiler removes all of that overhead by converting scripts directly to JavaScript functions. For example, the above script becomes:
 
 ```js
 const myVariable = stage.variables["`jEk@4|i[#Fk?(8x)AV.-my variable"];
@@ -182,7 +182,7 @@ return function fun1_sort () {
 };
 ```
 
-Functions such as `listGet`, `listReplace`, and `compareEqual` are part of the TurboWarp runtime and are implemented to match the strange behaviors of Scratch. The functions used by bubble sort are shown below, for your reference. Accuracy and performance are a higher priority than readability for these functions as they tend to be quite hot.
+Functions such as `listGet`, `listReplace`, and `compareEqual` are part of the 02Engine runtime and are implemented to match the strange behaviors of Scratch. The functions used by bubble sort are shown below, for your reference. Accuracy and performance are a higher priority than readability for these functions as they tend to be quite hot.
 
 ```js
 const isNotActuallyZero = val => {

@@ -10,7 +10,7 @@ Advanced settings allow you to reconfigure your project to do things that Scratc
 
 Navigate using the sidebar on the left. Look under the "Advanced settings" category.
 
-<!-- Migration for old links to https://docs.turbowarp.org/advanced-settings#high-quality-pen -->
+<!-- Migration for old links to https://docs.02engine.org/advanced-settings#high-quality-pen -->
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import {Redirect} from "@docusaurus/router";
 

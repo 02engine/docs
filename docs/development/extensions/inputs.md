@@ -12,7 +12,7 @@ Often you will want your blocks to take something in as an "input", "argument", 
 
 Save this code to a file called "strict-equality.js" beside "hello-world.js", and load it the same way you loaded the hello world extension. Most of the code is very similar to the hello world extension. Notice that the strictly equals block in this extension will differentiate between "a" and "A" unlike the normal Scratch equals block.
 
-(If you want to use this block in your projects, see the "Utilities" extension on https://extensions.turbowarp.org/)
+(If you want to use this block in your projects, see the "Utilities" extension on https://extensions.02engine.org/)
 
 Now let's talk about the arguments.
 
@@ -69,7 +69,7 @@ Sometimes you might prefer your blocks to have a dropdown. These are called menu
 
 <ExtensionCode title="strings-1">{require("!raw-loader!@site/static/example-extensions/strings-1.js")}</ExtensionCode>
 
-A similar block is available in the "Text" extension on https://extensions.turbowarp.org/.
+A similar block is available in the "Text" extension on https://extensions.02engine.org/.
 
 To make an argument into a menu, set its `type` to `Scratch.ArgumentType.STRING` and set its `menu` property to the name of the menu. This corresponds to a new property in the object returned by getInfo(): `menus`.
 

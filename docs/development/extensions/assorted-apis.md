@@ -24,7 +24,7 @@ docsURI adds a button at the start of the block list that opens a page for peopl
 
 ## disableMonitor
 
-Scratch will automatically show a checkbox to show a variable monitor by REPORTER blocks with no inputs. Note that in TurboWarp, this applies to BOOLEAN blocks too. To disable this, set disableMonitor to true on the block.
+Scratch will automatically show a checkbox to show a variable monitor by REPORTER blocks with no inputs. Note that in 02Engine, this applies to BOOLEAN blocks too. To disable this, set disableMonitor to true on the block.
 
 Note that, even if disableMonitor is set, it is still possible for someone to manually create a monitor using a modified (or old) version of the extension or other tools.
 

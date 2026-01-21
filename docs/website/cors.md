@@ -18,21 +18,21 @@ It stands for Cross-Origin Resource Sharing, but we're not going to dive into th
  - Some websites want to **block** access from other websites
  - Other websites want to **allow** access from other websites
 
-Imagine if any website you visited could access your bank's website as though they were you. That would be quite bad! But sometimes this access is not a problem and actually intended. Parts of Scratch's API enable CORS, which is how TurboWarp loads projects from Scratch.
+Imagine if any website you visited could access your bank's website as though they were you. That would be quite bad! But sometimes this access is not a problem and actually intended. Parts of Scratch's API enable CORS, which is how 02Engine loads projects from Scratch.
 
-CORS is the way that a website declares whether they want other websites to be able to access theirs. By default, access is not allowed. Websites have to **opt in to CORS** which lets other websites access them. If a website doesn't opt in, your browser will give TurboWarp a very generic "Network error".
+CORS is the way that a website declares whether they want other websites to be able to access theirs. By default, access is not allowed. Websites have to **opt in to CORS** which lets other websites access them. If a website doesn't opt in, your browser will give 02Engine a very generic "Network error".
 
 ## How to fix your blocks {#workarounds}
 
 It depends on what the URL is for.
 
  - **Switch to a different URL:** If the URL is just being used to host static files, find another host that supports direct downloads and CORS. If one API doesn't support CORS, check if a competitor's API does.
- - **Use a CORS proxy:** Instead of asking your browser to access a website directly, you can ask another server (called a CORS proxy) to access that website on your behalf and then send back the response but allowing CORS. There are many public CORS proxies that you can find online, but they tend to be short lived as they are expensive to operate and heavily abused. CORS proxies can also spy on your project's web requests, as well as tamper with them. This can often be problematic. TurboWarp does not currently run its own CORS proxy.
- - **Switch to TurboWarp Desktop:** The desktop app has an option to bypass CORS. See below.
+ - **Use a CORS proxy:** Instead of asking your browser to access a website directly, you can ask another server (called a CORS proxy) to access that website on your behalf and then send back the response but allowing CORS. There are many public CORS proxies that you can find online, but they tend to be short lived as they are expensive to operate and heavily abused. CORS proxies can also spy on your project's web requests, as well as tamper with them. This can often be problematic. 02Engine does not currently run its own CORS proxy.
+ - **Switch to 02Engine Desktop:** The desktop app has an option to bypass CORS. See below.
 
 ## Desktop app {#desktop}
 
-In [TurboWarp Desktop](https://desktop.turbowarp.org/), there is an option to bypass CORS to allow access to any website. For security reasons it's disabled by default to match normal web browsers. Open up Desktop Settings under the Settings button in the top left (in older versions Desktop Settings is under the ? button in the top right instead):
+In [02Engine Desktop](https://desktop.02engine.org/), there is an option to bypass CORS to allow access to any website. For security reasons it's disabled by default to match normal web browsers. Open up Desktop Settings under the Settings button in the top left (in older versions Desktop Settings is under the ? button in the top right instead):
 
 import settingsMenu from './assets/desktop-settings.png';
 

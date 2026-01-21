@@ -6,7 +6,7 @@ hide_table_of_contents: true
 # Special cloud behaviors
 
 :::info
-This page is about the [TurboWarp Packager](https://turbowarp.org/).
+This page is about the [02Engine Packager](https://02engine.org/).
 :::
 
 The disabled-by-default "Special cloud behaviors" option changes the behavior of specifically named cloud variables to unlock new compatibilities for your project. This is based on a [similar feature in HTMLifier](https://github.com/SheepTester/htmlifier/wiki/Special-cloud-behaviours). This feature can be enabled in the "Cloud variables" section.
@@ -67,4 +67,4 @@ If the JavaScript returns a [Promise](https://developer.mozilla.org/en-US/docs/W
 
 ## Further information and discussion {#further-information}
 
-See https://github.com/TurboWarp/packager/issues/48
+See https://github.com/02Engine/packager/issues/48

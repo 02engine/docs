@@ -39,7 +39,7 @@
             items: [
               // Value here corresponds to the internal types of the variables
               // in scratch-vm. And yes, broadcasts are actually variables.
-              // https://github.com/TurboWarp/scratch-vm/blob/20c60193c1c567a65cca87b16d22c51963565a43/src/engine/variable.js#L43-L67
+              // https://github.com/02Engine/scratch-vm/blob/20c60193c1c567a65cca87b16d22c51963565a43/src/engine/variable.js#L43-L67
               {
                 text: 'variable',
                 value: ''

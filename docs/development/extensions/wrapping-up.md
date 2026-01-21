@@ -7,8 +7,8 @@ hide_table_of_contents: true
 We hope that you found this tutorial helpful. Please give feedback and ask questions:
 
  - Feedback about the tutorial: https://scratch.mit.edu/users/GarboMuffin/#comments
- - Bug tracker and suggestion tracker: https://github.com/TurboWarp/extensions/issues
- - General discussion: https://github.com/TurboWarp/extensions/discussions
+ - Bug tracker and suggestion tracker: https://github.com/02Engine/extensions/issues
+ - General discussion: https://github.com/02Engine/extensions/discussions
 
 Thank you for reading this far.
 

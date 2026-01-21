@@ -12,10 +12,10 @@ Unsandboxed extensions run as plain `<script>` tags in the main window rather th
 
 To protect users from malicious extensions, extensions loaded from URLs will only run unsandboxed if their URL begins with one of these *exactly*:
 
- - `https://extensions.turbowarp.org/`
+ - `https://extensions.02engine.org/`
  - `http://localhost:8000/`
 
-As you don't have control over extensions.turbowarp.org, you will have to use the latter option. For this, configure your local HTTP server to run on port 8000 instead of what you've been using so far.
+As you don't have control over extensions.02engine.org, you will have to use the latter option. For this, configure your local HTTP server to run on port 8000 instead of what you've been using so far.
 
 When manually loading an extension from a file or JavaScript source code, there is an option to load the extension without the sandbox. This option to force an extension to run unsandboxed does not exist when using URLs due to security concerns.
 
@@ -76,7 +76,7 @@ Here you can see a complete unsandboxed extension:
 
 <ExtensionCode title="unsandboxed/hello-world-unsandboxed" sandbox={false}>{require("!raw-loader!@site/static/example-extensions/unsandboxed/hello-world-unsandboxed.js")}</ExtensionCode>
 
-If you're using a local HTTP server, save this so you can access it through the server, then load the exact URL [http://localhost:8000/hello-world-unsandboxed.js](http://localhost:8000/hello-world-unsandboxed.js) in TurboWarp. If nothing appears, see the developer console. If you see an error that the extension must be run unsandboxed, most likely you are using an old version of TurboWarp or you didn't load it from a URL that starts with `http://localhost:8000/` exactly. 127.0.0.1 and 0.0.0.0 won't work! It must be localhost, port 8000 exactly.
+If you're using a local HTTP server, save this so you can access it through the server, then load the exact URL [http://localhost:8000/hello-world-unsandboxed.js](http://localhost:8000/hello-world-unsandboxed.js) in 02Engine. If nothing appears, see the developer console. If you see an error that the extension must be run unsandboxed, most likely you are using an old version of 02Engine or you didn't load it from a URL that starts with `http://localhost:8000/` exactly. 127.0.0.1 and 0.0.0.0 won't work! It must be localhost, port 8000 exactly.
 
 If you're just using files, make sure to check the "Run extension without sandbox" box each time you load the extension.
 
@@ -118,9 +118,9 @@ const vm = Scratch.vm;
 }(Scratch));
 ```
 
-Dig around for a while to find what you're looking for. Your developer tools will be immensely useful as you can access `Scratch` from there after an extension is loaded, or use the other [debugging global variables](../globals) that are available (but please don't use those in extensions). You may find the [scratch-vm source code](https://github.com/TurboWarp/scratch-vm/) or [@turbowarp/types](https://github.com/turboWarp/types) to be useful resources.
+Dig around for a while to find what you're looking for. Your developer tools will be immensely useful as you can access `Scratch` from there after an extension is loaded, or use the other [debugging global variables](../globals) that are available (but please don't use those in extensions). You may find the [scratch-vm source code](https://github.com/02Engine/scratch-vm/) or [@02Engine/types](https://github.com/02Engine/types) to be useful resources.
 
-Here is an example of an extension that uses Scratch.vm to toggle turbo mode, similar to the "runtime options" extension on [extensions.turbowarp.org](https://extensions.turbowarp.org/):
+Here is an example of an extension that uses Scratch.vm to toggle turbo mode, similar to the "runtime options" extension on [extensions.02engine.org](https://extensions.02engine.org/):
 
 <ExtensionCode title="unsandboxed/turbo-mode">{require("!raw-loader!@site/static/example-extensions/unsandboxed/turbo-mode.js")}</ExtensionCode>
 
@@ -175,7 +175,7 @@ If you're using the `vm`, `runtime` or `Cast` APIs a lot, common practise is to 
 
 ## Permissioned APIs
 
-Whereas sandboxed extensions are free to use APIs such as fetch() as they please, unsandboxed extensions should instead ask for permission before making a request to any remote service. This gives the user control over their privacy. While there are no technical measures enforcing this at runtime, it is required for all extensions on [extensions.turbowarp.org](https://extensions.turbowarp.org).
+Whereas sandboxed extensions are free to use APIs such as fetch() as they please, unsandboxed extensions should instead ask for permission before making a request to any remote service. This gives the user control over their privacy. While there are no technical measures enforcing this at runtime, it is required for all extensions on [extensions.02engine.org](https://extensions.02engine.org).
 
 Requests to some popular services such as [GitHub Pages](https://pages.github.com/) or [GitLab Pages](https://about.gitlab.com/stages-devops-lifecycle/pages/) may be automatically approved, while requests to other random websites may show a prompt to the user. You shouldn't make any assumptions about this, and your code needs to ensure that it can gracefully handle the user rejecting the prompt (the extension should behave the same as it does when there is no internet connection).
 

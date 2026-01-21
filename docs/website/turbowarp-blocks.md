@@ -9,7 +9,7 @@ TurboWarp has a section of blocks that allows you to use certain features previo
 
 NEW: TurboWarp now supports unsandboxed extensions which add new blocks! https://extensions.turbowarp.org/
 
-## is compiled? and is TurboWarp? {#is-compiled}
+## is compiled? and is TurboWarp or 02Engine? {#is-compiled}
 
 ![is compiled?](./assets/is-compiled.svg)
 

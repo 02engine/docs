@@ -22,7 +22,7 @@ class AsyncExtension {
           arguments: {
             URL: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: 'https://extensions.turbowarp.org/hello.txt'
+              defaultValue: 'https://extensions.02engine.org/hello.txt'
             }
           }
         }

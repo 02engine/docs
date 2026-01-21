@@ -7,10 +7,10 @@ sidebar_label: Embedding
 # Embedding the packager
 
 :::info
-This page is about the [TurboWarp Packager](https://turbowarp.org/). If you just want an easy way to embed a Scratch project into a website, see [the other embedding page](/embedding).
+This page is about the [02Engine Packager](https://02engine.org/). If you just want an easy way to embed a Scratch project into a website, see [the other embedding page](/embedding).
 :::
 
-You can embed the output of the TurboWarp Packager into another website:
+You can embed the output of the 02Engine Packager into another website:
 
 ```html
 <iframe src="path_to_project.html" width="480" height="360" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>

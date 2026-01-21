@@ -1,16 +1,16 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'TurboWarp Documentation',
-  url: 'https://docs.turbowarp.org',
+  title: '02Engine Documentation',
+  url: 'https://docs.02engine.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  organizationName: 'TurboWarp',
+  organizationName: '02Engine',
   projectName: 'docs',
   trailingSlash: false,
   themeConfig: {
     navbar: {
-      title: 'TurboWarp Documentation',
+      title: '02Engine Documentation',
       items: [
         {
           href: '/packager/',
@@ -23,12 +23,12 @@ module.exports = {
           position: 'left'
         },
         {
-          href: 'https://turbowarp.org/',
-          label: 'TurboWarp',
+          href: 'https://02engine.org/',
+          label: '02Engine',
           position: 'right'
         },
         {
-          href: 'https://github.com/TurboWarp',
+          href: 'https://github.com/02Engine',
           label: 'GitHub',
           position: 'right',
         },
@@ -38,7 +38,7 @@ module.exports = {
       // This is all supposed to be public
       appId: 'HORQ9E5CCA',
       apiKey: 'c3873ce4208edb896a31bb3e7c2cbdad',
-      indexName: 'turbowarp'
+      indexName: '02Engine'
     },
     colorMode: {
       respectPrefersColorScheme: true,

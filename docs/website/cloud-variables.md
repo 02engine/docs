@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 # Cloud Variables
 
-TurboWarp has its own cloud variable server independent of Scratch.
+02Engine has its own cloud variable server independent of Scratch.
 
 Some things to keep in mind:
 
@@ -28,7 +28,7 @@ We allow and encourage developing bots and custom clients. However, due to persi
 
 ### Protocol {#protocol}
 
-The protocol is the [same as Scratch's cloud variables](https://github.com/TurboWarp/cloud-server/blob/master/doc/protocol.md). We provide a [barebones reference library for Node.js](https://www.npmjs.com/package/@turbowarp/mist). As the protocol is fully open, you do not need to use our library if you don't want to.
+The protocol is the [same as Scratch's cloud variables](https://github.com/02Engine/cloud-server/blob/master/doc/protocol.md). We provide a [barebones reference library for Node.js](https://www.npmjs.com/package/@02Engine/mist). As the protocol is fully open, you do not need to use our library if you don't want to.
 
 ### User-Agent is required {#user-agent}
 
@@ -69,7 +69,7 @@ If someone does not specify `contactInformation`, you should not let them contin
 To actually set the User-Agent, look at the documentation for the WebSocket library you use. They probably won't mention User-Agent specifically, but they should mention how to set headers in general. For example, using the Node.js [ws](https://www.npmjs.com/package/ws) client, you would do:
 
 ```js
-const ws = new WebSocket("wss://clouddata.turbowarp.org", {
+const ws = new WebSocket("wss://clouddata.02engine.org", {
   headers: {
     "user-agent": userAgentGoesHere
   }
@@ -132,5 +132,5 @@ The server will periodically send a [WebSocket ping frame](https://developer.moz
 
 To make things easier for us, you, and anyone using your library, please log these things somewhere (such as in error messages) instead of silently ignoring them:
 
- - WebSocket close codes. All of the 4XXX codes are [listed in this table](https://github.com/TurboWarp/cloud-server/blob/master/doc/protocol.md#server---client). Would you rather see `connection closed` or `connection closed with code 4002`? Looking up the latter's code in the table makes it clear that the username is the problem.
+ - WebSocket close codes. All of the 4XXX codes are [listed in this table](https://github.com/02Engine/cloud-server/blob/master/doc/protocol.md#server---client). Would you rather see `connection closed` or `connection closed with code 4002`? Looking up the latter's code in the table makes it clear that the username is the problem.
  - Invalid JSON received from the server. If the server has something to tell you beyond just what the close code table says, it might send you a plain English sentence instead of a JSON object. When your JSON parser throws an error, you should log the actual raw text received from the server so you get error messages like `Received invalid JSON from server: The cloud data library you are using is putting your Scratch account at risk by sending us your login token for no reason` instead of `JSON.parse: unexpected character at line 1 column 1 of the JSON data`. Which of those would you rather see?

@@ -48,7 +48,7 @@ And perhaps most importantly, running a block from an unsandboxed extension is a
 
 1. Create a sandboxed extension (same as we've been building so far) with a COMMAND block that does nothing. Create a new empty project and create a repeat (10) loop that runs this block 4 times. Observe that, even though the blocks don't do anything, it takes more than a second for the loop to complete.
 1. In the repeat loop, replace the block from the extension with a "set my variable to 0" block instead. Observe that the loop completes instantly. This is how blocks from unsandboxed extensions will behave.
-1. Inside a custom extension, use console.log to output the value of `window.origin`. Compare this to running `window.origin` in your browser's developer console on turbowarp.org.
+1. Inside a custom extension, use console.log to output the value of `window.origin`. Compare this to running `window.origin` in your browser's developer console on 02engine.org.
 
 ## Next steps
 

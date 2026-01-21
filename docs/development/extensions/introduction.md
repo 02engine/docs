@@ -4,7 +4,7 @@ hide_table_of_contents: true
 
 # Introduction to custom extensions
 
-Custom extensions are a way for you to add new blocks to TurboWarp using JavaScript.
+Custom extensions are a way for you to add new blocks to 02Engine using JavaScript.
 
 In this tutorial, we will describe how to build custom extensions. The pages can be navigated using the sidebar or links at the bottom of each page. We assume that you read each page in full and do the exercises listed (if any) before going to the next page.
 
@@ -28,7 +28,7 @@ We will discuss the difference between sandboxed and unsandboxed extensions at [
 
 ## Compatibility
 
-Custom extensions are not compatible with Scratch. Projects made using custom extensions cannot be uploaded to the Scratch website. They can, however, be packaged using the [TurboWarp Packager](https://packager.turbowarp.org/).
+Custom extensions are not compatible with Scratch. Projects made using custom extensions cannot be uploaded to the Scratch website. They can, however, be packaged using the [02Engine Packager](https://packager.02engine.org/).
 
 ## Prerequisites
 
@@ -46,15 +46,15 @@ We know that some of you will be eager to start sharing your extensions around, 
 
 ## Prepare a development environment
 
-In recent versions of TurboWarp, there are several ways to develop extensions.
+In recent versions of 02Engine, there are several ways to develop extensions.
 
 ### Files (simplest)
 
-Recent versions of the TurboWarp website and desktop app have an option in the custom extension menu to load extensions either from local files or from copied and pasted JavaScript code. This will be the easiest way to develop extensions as it can be done on any computer with just a text editor.
+Recent versions of the 02Engine website and desktop app have an option in the custom extension menu to load extensions either from local files or from copied and pasted JavaScript code. This will be the easiest way to develop extensions as it can be done on any computer with just a text editor.
 
 ### Local HTTP Server (recommended)
 
-However, if possible, you should use a local HTTP server that lets TurboWarp fetch your extension from your computer. This speeds up the process because you don't have to select/paste the JavaScript code in TurboWarp every time you make changes. There are a lot of options for installing one of these. If you have Python installed, you already have one:
+However, if possible, you should use a local HTTP server that lets 02Engine fetch your extension from your computer. This speeds up the process because you don't have to select/paste the JavaScript code in 02Engine every time you make changes. There are a lot of options for installing one of these. If you have Python installed, you already have one:
 
 ```bash
 cd path/to/where/you/will/store/your/extensions
