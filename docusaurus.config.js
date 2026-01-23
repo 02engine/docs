@@ -23,12 +23,12 @@ module.exports = {
           position: 'left'
         },
         {
-          href: 'https://02engine.org/',
+          href: 'https://02engine.02studio.xyz/',
           label: '02Engine',
           position: 'right'
         },
         {
-          href: 'https://github.com/02Engine',
+          href: 'https://github.com/02engine',
           label: 'GitHub',
           position: 'right',
         },
