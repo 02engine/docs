@@ -1,6 +1,14 @@
 module.exports = {
   sidebar: [
     'intro',
+    {
+      type: 'category',
+      label: '⭐02Engine',
+      collapsed: false,
+      items: [
+        'website/direct-javascript-coding',
+      ]
+    },
     'website/unshared-projects',
     'website/cloud-variables',
     {
@@ -30,7 +38,6 @@ module.exports = {
     'website/translate',
     'website/url-parameters',
     'website/scratch-accounts',
-    'website/direct-javascript-coding',
     'website/donate',
   ],
   development: [
