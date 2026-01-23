@@ -8,12 +8,12 @@ hide_table_of_contents: true
 You can use 02Engine to embed a Scratch project in your website using an `<iframe>`. For the best experience, use this template:
 
 ```html
-<iframe src="https://editor.02engine.02studio.xyz/embed?project_url=your_project_file_url" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen="" style="color-scheme: auto"></iframe>
+<iframe src="https://editor.02engine.org/embed?project_url=your_project_file_url" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen="" style="color-scheme: auto"></iframe>
 ```
 
 You should change these attributes appropriately:
 
- - `src="https://editor.02engine.02studio.xyz/embed?project_url=your_project_file_url"` contains the ID of the project you want to embed. You should change this. We're using 414716080 as an example, but you can replace that number with any other project ID. You can also include other URL paramters as listed below.
+ - `src="https://editor.02engine.org/embed?project_url=your_project_file_url"` contains the ID of the project you want to embed. You should change this. We're using 414716080 as an example, but you can replace that number with any other project ID. You can also include other URL paramters as listed below.
  - `width="482" height="412"` defines the size of the embed. The player will automatically resize to whatever you specify here, so you can change the numbers. The border around the stage takes two pixels of width and height, and the controls take an extra 50 pixels of height. Thus, to get a 480x360 stage, you would use 482 and 412.
  - Optionally, you may want to add `loading="lazy"` to the attributes which lets the browser wait to load the iframe until the user scrolls closer to it. This can improve performance if the embed is pretty far down the page and doesn't need to be loaded right away.
 
@@ -41,13 +41,13 @@ There are also some special parameters only available in embeds:
 
 ### Autoplay {#autoplay}
 
-Embeds support the `autoplay` parameter, which will automatically hit the green flag when the project loads. For example: https://editor.02engine.02studio.xyz/embed?project_url=your_project_file_url&autoplay
+Embeds support the `autoplay` parameter, which will automatically hit the green flag when the project loads. For example: https://editor.02engine.org/embed?project_url=your_project_file_url&autoplay
 
 Note that sound blocks may not work until the user interacts with the project (for example, by clicking). This is a restriction imposed by browsers. There is nothing 02Engine can do to work around this.
 
 ### Settings button {#settings-button}
 
-You can optionally enable a settings button in embeds with the `settings-button` parameter that opens a similar menu to the "Advanced settings" menu found in the website and editor. For example: https://editor.02engine.02studio.xyz/embed?project_url=your_project_file_url&autoplay&settings-button
+You can optionally enable a settings button in embeds with the `settings-button` parameter that opens a similar menu to the "Advanced settings" menu found in the website and editor. For example: https://editor.02engine.org/embed?project_url=your_project_file_url&autoplay&settings-button
 
 ### Fullscreen background color {#fullscreen-background}
 
@@ -55,13 +55,13 @@ Outside of fullscreen mode, the embed is transparent so you can style the parent
 
 In fullscreen mode, the embed will either use a white or an almost black color depending on whether the user's computer is configured to dark mode or not.
 
-To override this behavior, set the `fullscreen-background` parameter to a CSS color value like `black` or `rgb(50,90,100)`. For example: https://editor.02engine.02studio.xyz/embed?project_url=your_project_file_url&fullscreen-background=yellow
+To override this behavior, set the `fullscreen-background` parameter to a CSS color value like `black` or `rgb(50,90,100)`. For example: https://editor.02engine.org/embed?project_url=your_project_file_url&fullscreen-background=yellow
 
 You can also use hex colors if you escape the `#` with percent encoding: `%23abc123`.
 
 ### Addons {#addons}
 
-By default, embeds have no addons enabled. This can be overridden with the `addons` parameter, which is a comma separated list of addon IDs to enable. For example: https://editor.02engine.02studio.xyz/embed?project_url=your_project_file_url&addons=pause,gamepad,mute-project
+By default, embeds have no addons enabled. This can be overridden with the `addons` parameter, which is a comma separated list of addon IDs to enable. For example: https://editor.02engine.org/embed?project_url=your_project_file_url&addons=pause,gamepad,mute-project
 
 Useful addons and their IDs:
 

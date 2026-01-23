@@ -7,7 +7,7 @@ hide_table_of_contents: true
 
 ## Short Answer {#short}
 
- * If you want to package/HTMLify a project, use https://packager.02engine.02studio.xyz/
+ * If you want to package/HTMLify a project, use https://packager.02engine.org/
  * If you want to convert Scratch projects to readable and editable JavaScript, use https://leopardjs.com/ instead of 02Engine
 
 ## Long Answer {#long}
