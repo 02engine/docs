@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 # 60 FPS (Custom FPS)
 
-A custom FPS (frames per second) changes how often scripts are run every second. Most often this is changed to 60 FPS, but any value between 1 and 250 is possible.
+A custom FPS (frames per second) changes how often scripts are run every second. Most often this is changed to 60 FPS, but any value bigger than 0 is possible.
 
 A value of 0 will make the project run at the same framerate as the screen instead of a set interval. This also means that the project's scripts may stop running when the project's tab is hidden.
 

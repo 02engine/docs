@@ -7,7 +7,9 @@ module.exports = {
       collapsed: false,
       items: [
         'website/direct-javascript-coding',
-        'website/opf'
+        'website/opf',
+        'website/custom-default-project',
+        'website/custom-addon'
       ]
     },
     'website/unshared-projects',
