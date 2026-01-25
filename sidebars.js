@@ -10,7 +10,8 @@ module.exports = {
         'website/opf',
         'website/custom-default-project',
         'website/custom-addon',
-        'website/new-ui'
+        'website/new-ui',
+        'website/convert-cli'
       ]
     },
     'website/unshared-projects',
