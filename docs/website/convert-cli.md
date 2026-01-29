@@ -30,6 +30,8 @@ In CLI mode, you can use the following JavaScript functions in your Scratch proj
 
 - You can use a `say` block to output text to the console
 
+- You can use a `ask` block to prompt the user for input
+
 - cli.log(message) - Output text to console
 - cli.error(message) - Output error to console
 - cli.warn(message) - Output warning to console
