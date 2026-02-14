@@ -7,6 +7,7 @@ module.exports = {
       collapsed: false,
       items: [
         'website/direct-javascript-coding',
+        'website/extension-debugger',
         'website/opf',
         'website/custom-default-project',
         'website/custom-addon',
