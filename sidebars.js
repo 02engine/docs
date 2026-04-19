@@ -28,6 +28,7 @@ module.exports = {
         'website/settings/custom-fps',
         'website/settings/interpolation',
         'website/settings/high-quality-pen',
+        'website/settings/offscreen-drawable-culling',
         'website/settings/remove-fencing',
         'website/settings/remove-misc-limits',
         'website/settings/infinite-clones',

@@ -15,6 +15,7 @@ Advanced Settings expose runtime, compiler, editor, and layout controls that nor
 - **Use Custom UI** enables the 02Engine New UI window layout.
 - **Interpolation** visually smooths sprite motion between runtime steps.
 - **High Quality Pen** improves pen rendering quality.
+- **Skip Offscreen Sprite Rendering** skips safe fully offscreen sprite and clone draw calls during the normal stage render pass.
 - **Warp Timer** prevents long warp scripts from locking the runtime forever, at a performance cost.
 
 ## Remove Limits
@@ -43,7 +44,7 @@ This section uploads and configures a local editor background image. See [Backgr
 02Engine has two kinds of settings:
 
 - **Local editor settings** live on the current device or desktop profile. New UI mode and editor backgrounds are examples.
-- **Project-stored settings** are written into the project by **Store settings in project**. Runtime settings such as FPS, OPF, interpolation, high quality pen, runtime limits, and stage size can be applied when the project is loaded by 02Engine.
+- **Project-stored settings** are written into the project by **Store settings in project**. Runtime settings such as FPS, OPF, interpolation, high quality pen, offscreen sprite rendering, runtime limits, and stage size can be applied when the project is loaded by 02Engine.
 
 Not every setting should be stored in a project. For example, settings that are mostly editor preferences or safety controls can remain local.
 
