@@ -1,184 +1,133 @@
-# 02Engine JavaScript Direct Coding Feature
+---
+slug: /direct-javascript-coding
+title: Direct JavaScript Coding
+hide_table_of_contents: false
+---
 
-## Overview
+# Direct JavaScript Coding
 
-02Engine extends the Scratch GUI by allowing developers to write JavaScript code directly inside comments on **hat blocks**, bypassing the traditional block-to-JavaScript compilation process.  
-When the compiler detects a `#code` comment, it directly uses the JavaScript code inside the comment as the executable script body.
+02Engine can compile a hat block from JavaScript written inside a comment. This is an advanced escape hatch for experiments, debugging, and high-control projects.
 
-## Features
+:::caution
+Direct JavaScript code runs inside the compiled script body and can access VM internals. Only use code you understand and trust. Projects that depend on this feature are not Scratch-compatible.
+:::
 
-- **Direct JavaScript Execution**: Write JS code in comments and compile/run it directly  
-- **Full Runtime Access**: Access the complete internal Scratch VM API  
-- **Generator Function Support**: Use the `yield` keyword to pause execution between frames  
-- **Parameter Passing**: Access parameters of custom procedures  
-- **Backward Compatibility**: Fully compatible with existing Scratch projects  
+## Basic Usage
 
-## Usage
-
-### 1. Adding a Comment
-
-Add a comment to a hat block (such as “when green flag clicked”) using the following format:
+Add a comment to a top-level hat block and start a line with `#code`.
 
 ```js
 #code
-// Your JavaScript code
-console.log("Hello from JS!");
+console.log('Hello from 02Engine');
 target.setXY(100, 50);
+retire();
+return;
 ```
 
-Or in a single line:
+Everything after the `#code` line is used as the JavaScript body for that script. You can also write the first code line after the marker:
 
 ```js
-#code console.log("Single-line code");
+#code console.log('single-line start');
+retire();
+return;
 ```
 
-You can directly use the `block` function to call Scratch blocks, for example:
+The marker must appear at the start of a line. Other comment lines before `#code` can still be used for normal notes or TurboWarp-style compiler flags.
+
+## Available Variables
+
+The generated script factory provides these variables:
+
+| Name | Description |
+| --- | --- |
+| `target` | The target running the script. |
+| `runtime` | The VM runtime. |
+| `stage` | The stage target. |
+| `thread` | The current thread. |
+| `p0`, `p1`, ... | Custom block procedure arguments when compiling a procedure. |
+| `block` | A helper for calling Scratch opcode functions. |
+| `vars` | A helper for finding stage or target variables by name. |
+| `wait` | A generator helper for millisecond delays. |
+
+## Calling Blocks
+
+`block` is a proxy that resolves opcode names through the runtime.
 
 ```js
-block.looks_sayforsecs({ MESSAGE: "Hello", SECS: 2 }, { target: target });
+block.looks_sayforsecs({
+  MESSAGE: 'Hello',
+  SECS: 1
+});
 ```
 
-You can quickly access variables using the `vars.stage` / `vars.target` helpers:
+For advanced cases, pass a block utility context manually:
 
 ```js
-// Access a list
-list = vars.stage("My List", "list"); // global list
-list.value.push(123);
-list._monitorUpToDate = false; // refresh display
-
-// Access variables
-variable = vars.stage("My Variable"); // global variable
-selfvar = vars.target("Private Variable"); // local variable
-variable.value++;
-variable._monitorUpToDate = false;
+block.motion_gotoxy(
+  {X: 0, Y: 0},
+  {target}
+);
 ```
 
-You can use `yield* wait` to implement delays:
+## Accessing Variables and Lists
+
+Use `vars.stage(name, type)` or `vars.target(name, type)`.
 
 ```js
-yield* wait(1000); // milliseconds
+const score = vars.stage('score');
+score.value += 1;
+score._monitorUpToDate = false;
+
+const items = vars.target('items', 'list');
+items.value.push('new item');
+items._monitorUpToDate = false;
 ```
 
-Each script must end with:
+For normal variables, the second argument can be omitted. For lists, pass `'list'`.
+
+## Yielding and Waiting
+
+If the code contains `yield`, 02Engine compiles it as a generator script.
+
+```js
+#code
+while (true) {
+  target.setXY(target.x + 4, target.y);
+  yield;
+}
+```
+
+Use `yield* wait(ms)` for a delay:
+
+```js
+#code
+block.looks_say({MESSAGE: 'Wait...'});
+yield* wait(1000);
+block.looks_say({MESSAGE: 'Done'});
+retire();
+return;
+```
+
+## Ending Scripts
+
+For scripts that do not run forever, explicitly retire and return:
 
 ```js
 retire();
 return;
 ```
 
-### 2. Comment Rules
+This mirrors the generated compiler cleanup path. If a script is a long-running generator loop, it can keep yielding instead.
 
-- `#code` must occupy an entire line or appear at the beginning of a line  
-- All lines following `#code` are treated as JavaScript code  
-- Multi-line JavaScript is supported  
-- Other comment content is allowed, but only the `#code` section is parsed  
+## Compiler Interaction
 
-### 3. Writing Code
+Direct JavaScript only affects the script whose hat comment contains `#code`. Other scripts compile normally.
 
-Available predefined variables:
+The implementation stores the code on the compiler intermediate script and uses it as the generated script body. Because this bypasses normal block compilation for that script, syntax errors or unsafe VM calls are surfaced as JavaScript/compiler errors instead of Scratch block errors.
 
-| Name | Type | Description |
-|-----|------|-------------|
-| `target` | `RenderedTarget` | Sprite executing the script |
-| `runtime` | `Runtime` | Scratch runtime instance |
-| `stage` | `RenderedTarget` | Stage object |
-| `thread` | `Thread` | Current execution thread |
-| `p0`, `p1`, ... | `any` | Procedure parameters |
+## Practical Tips
 
-## Technical Implementation
-
-### Modified Files
-
-#### 1. `intermediate.js`
-
-```js
-/**
- * Custom JavaScript code for this script, if any.
- * @type {string|null}
- */
-this.customCode = null;
-```
-
-#### 2. `irgen.js`
-
-Core logic:
-- Detect lines starting with `#code`
-- Collect subsequent lines as JavaScript
-- Auto-detect `yield`
-- Store code in `this.script.customCode`
-
-#### 3. `jsgen.js`
-
-```js
-if (this.script.customCode) {
-  source = this.script.customCode;
-}
-```
-
-### Compilation Flow
-
-1. Parse hat block comments
-2. Use `customCode` directly if present
-3. Execute inside the Scratch runtime
-
-## Example Code
-
-### Example 1: Simple Movement
-
-```js
-let x = 100;
-let y = 100;
-let dx = 5;
-let dy = 3;
-
-while (true) {
-  x += dx;
-  y += dy;
-
-  if (x > 240 || x < -240) dx = -dx;
-  if (y > 180 || y < -180) dy = -dy;
-
-  target.setXY(x, y);
-  yield;
-}
-```
-
-### Example 2: Mouse Following
-
-```js
-while (true) {
-  const mouse = runtime.ioDevices.mouse;
-  target.setXY(mouse._clientX - 240, 180 - mouse._clientY);
-  yield;
-}
-```
-
-### Example 3: Loop Output
-
-```js
-target.setXY(0, 0);
-for (let i = 0; i < 10; i++) {
-  block.looks_sayforsecs({ MESSAGE: i, SECS: 0.5 });
-  yield* wait(500);
-}
-retire(); return;
-```
-
-## Notes
-
-### Security
-- JavaScript executes directly; only trust safe code
-- Beware of injection risks
-
-### Performance
-- Always use `yield` in long loops
-- Avoid heavy per-frame allocations
-
-### Compatibility
-- APIs depend on Scratch VM internals
-- Test across versions and browsers
-
-## License
-
-This feature is based on the Scratch open-source project and follows its license.  
-Please ensure compliance with Scratch’s terms of use.
+- Keep code small and focused.
+- Add `yield` in long loops so the editor does not freeze.
+- Avoid relying on private VM fields unless you are prepared to update the project when internals change.
+- Test in both editor and packaged runtime if you plan to distribute the project.

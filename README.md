@@ -2,32 +2,53 @@
 
 https://docs.02engine.org/
 
-This repository contains documentation for 02Engine.
-
-## Writing content
-
-If you found a typo or have a suggestion to improve the pages, the easiest way to get it resolved is to post about it on the Scratch profile https://scratch.mit.edu/users/GarboMuffin/#comments or in GitHub issues https://github.com/02Engine/docs/issues/new. Minor fixes get resolved very quickly usually.
-
-Alternatively, you can submit a pull request yourself containing a fix. The easiest way to edit a page is:
-
-1. Open the website, https://docs.02engine.org/
-2. Find the page you want to edit
-3. Click "Edit this page" at the bottom
-4. Sign in with a GitHub account
-5. Fork the repository
-6. Use the GitHub editor to modify the file. It uses [Markdown syntax](https://www.markdownguide.org/basic-syntax/).
-7. Click "Propose Changes"
-
-If you'd like to write a new page, we'd prefer that you ask us first before you spend much time writing.
+This repository contains the public documentation for 02Engine.
 
 ## Local Development
 
-This website is built with [Docusaurus](https://docusaurus.io/). Documentation is inside the `docs` folder, generally that is all you will have to touch. We accept pull requests.
+The docs site is built with [Docusaurus](https://docusaurus.io/) and uses Bun for normal local commands.
 
-```bash
-npm install
-# For development:
-npm start
-# For production:
-npm run build
+Install dependencies:
+
+```powershell
+bun install
 ```
+
+Start the development server:
+
+```powershell
+bun run start
+```
+
+Build the production site:
+
+```powershell
+bun run build
+```
+
+Serve a local production build:
+
+```powershell
+bun run serve
+```
+
+Clear Docusaurus caches:
+
+```powershell
+bun run clear
+```
+
+## Writing Content
+
+Most documentation pages live in the `docs` folder and are written in Markdown or MDX.
+
+When adding a new page:
+
+1. Create the page under the most appropriate folder.
+2. Add front matter with a stable `slug` when the public URL matters.
+3. Add the page to `sidebars.js`.
+4. Run `bun run build` to catch broken links and MDX errors.
+
+## Documentation Direction
+
+02Engine is based on Scratch and TurboWarp, but the documentation should describe 02Engine's real behavior first. Keep inherited upstream pages where they are still useful, but prefer 02Engine-specific names, workflows, screenshots, and limitations.

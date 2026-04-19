@@ -2,73 +2,61 @@
 hide_table_of_contents: true
 ---
 
-# Introduction to custom extensions
+# Introduction to Custom Extensions
 
-Custom extensions are a way for you to add new blocks to 02Engine using JavaScript.
+Custom extensions add new blocks to 02Engine using JavaScript.
 
-In this tutorial, we will describe how to build custom extensions. The pages can be navigated using the sidebar or links at the bottom of each page. We assume that you read each page in full and do the exercises listed (if any) before going to the next page.
+This tutorial explains the extension API from the ground up. Read it in order if you are new to Scratch-style extensions; later pages assume the earlier examples make sense.
 
-:::info
-**We just rewrote this entire tutorial from the ground up.**
+02Engine is optimized for trusted custom-extension workflows. The editor can import extensions from several galleries, batch import selected extensions, and connect to the 02Engine VSCode Toolbox debug server. The current 02Engine VM loads custom extension URLs through the unsandboxed extension runner, so only load extensions from sources you trust.
 
-It uses a completely different structure and style. We hope it's easier to follow. There's a good chance there are some errors and omissions in this tutorial. [Let me know what you think](https://scratch.mit.edu/users/GarboMuffin/#comments). Thanks!
-:::
+## Extension Types
 
-When people refer to "extensions", there are a few things they could be referring to:
+When people say "extension", they may mean different systems:
 
-| |Can access Scratch internals|Can be loaded by URL|
-|:-:|:-:|:-:|
-|Core extensions (pen, translate, etc.)|✅|❌|
-|Sandboxed custom extensions|❌|✅|
-|Unsandboxed custom extensions|✅|✅|
+| Type | Can access Scratch internals | Can be loaded by URL |
+| --- | --- | --- |
+| Core extensions, such as Pen and Translate | yes | no |
+| Sandboxed custom extensions | no | yes |
+| Unsandboxed custom extensions | yes | yes |
 
-The documentation in these segments refers only to custom extensions. While core extensions share many fundamentals, the process of developing them is significantly different. See [getting started](../getting-started) as a starting point for building core extensions.
-
-We will discuss the difference between sandboxed and unsandboxed extensions at [a later time](./unsandboxed).
+This tutorial focuses on custom extensions. Core extensions share concepts with custom extensions, but developing them usually means changing the VM and GUI repositories directly. See [Getting Started](../getting-started.md) for 02Engine repository development.
 
 ## Compatibility
 
-Custom extensions are not compatible with Scratch. Projects made using custom extensions cannot be uploaded to the Scratch website. They can, however, be packaged using the [02Engine Packager](https://packager.02engine.org/).
+Custom extensions are not compatible with the Scratch website. Projects made with custom extensions cannot be uploaded to scratch.mit.edu, but they can be opened in 02Engine and packaged with the [02Engine Packager](https://packager.02engine.org/).
 
 ## Prerequisites
 
-Custom extension development requires knowledge of writing JavaScript. If you aren't familiar with JavaScript, please learn it first. Your favorite search engine can help you find places to learn. If you don't know things like the difference between `"1"` and `1`, developing extensions will be very difficult. As volunteers, we don't have a lot of time to spend helping you learn JavaScript -- sorry.
+You should be comfortable writing JavaScript before building extensions. Browser developer tools are also important for reading errors and inspecting runtime behavior.
 
-Extensions can be developed using either the website or desktop app.
+Extensions can be developed with the website or desktop app.
 
-We assume that you have access to the developer tools built in to your browser or the desktop app. Typically this is accessible through right click > inspect element. In the desktop app, it can be shown with Ctrl+Shift+I (Option+Command+I on macOS). Writing JavaScript without access to the developer tools is extremely painful and not something we can provide help for.
+## Ways To Develop
 
-## Tutorial structure
+### File or Text Import
 
-This tutorial is follows a fundamentals-up approach. We're going to start with the most basic extensions imaginable that are effectively useless and gradually build up to things that are more useful.
+The custom extension loader can import local files or pasted JavaScript source. This is the simplest workflow and works with any editor.
 
-We know that some of you will be eager to start sharing your extensions around, but **we ask that you read through this whole tutorial before publishing your extensions or submitting them to us** so that the extensions you share are actually useful.
+### Local HTTP Server
 
-## Prepare a development environment
-
-In recent versions of 02Engine, there are several ways to develop extensions.
-
-### Files (simplest)
-
-Recent versions of the 02Engine website and desktop app have an option in the custom extension menu to load extensions either from local files or from copied and pasted JavaScript code. This will be the easiest way to develop extensions as it can be done on any computer with just a text editor.
-
-### Local HTTP Server (recommended)
-
-However, if possible, you should use a local HTTP server that lets 02Engine fetch your extension from your computer. This speeds up the process because you don't have to select/paste the JavaScript code in 02Engine every time you make changes. There are a lot of options for installing one of these. If you have Python installed, you already have one:
+A local HTTP server lets 02Engine reload your extension by URL:
 
 ```bash
-cd path/to/where/you/will/store/your/extensions
+cd path/to/your/extensions
 python3 -m http.server 8080
 ```
 
-This starts a local HTTP server on http://localhost:8080/ in whatever folder you ran that command in.
+Then load:
 
-We will [eventually](./better-development-server) introduce the official development server, but we recommend starting with the most primitive setup possible for now.
+```text
+http://localhost:8080/hello-world.js
+```
 
-For now, you should use a port **other than 8000**. We will talk more about this later, but currently we want the extensions you write to run in the sandbox. Extensions that run outside of the sandbox have some extra responsibilities that we will discuss [later](./unsandboxed).
+### 02Engine VSCode Toolbox
 
-To test that your server works, create a file called `hello-world.js` and put any text in it. Make sure you're able to read the contents of the file in your browser by visiting a link like [http://localhost:8080/hello-world.js](http://localhost:8080/hello-world.js).
+For faster iteration, use the 02Engine VSCode Toolbox debug server and connect it from **Advanced Settings > 02Engine VScode Toolbox**. See [Extension Debugger](../../website/extension-debugger.md).
 
-## Next steps
+## Next Step
 
-Next, let's [make your first extension](./hello-world).
+Next, make your first extension: [Hello World](./hello-world.md).

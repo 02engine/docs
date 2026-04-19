@@ -3,13 +3,13 @@ slug: /blocks
 hide_table_of_contents: true
 ---
 
-# TurboWarp Blocks
+# 02Engine Extra Blocks
 
-TurboWarp has a section of blocks that allows you to use certain features previously not accessible to Scratch projects.
+02Engine includes the extra block category inherited from TurboWarp. These blocks expose runtime features that Scratch projects normally cannot access.
 
-NEW: TurboWarp now supports unsandboxed extensions which add new blocks! https://extensions.turbowarp.org/
+For a larger set of extra blocks, use the 02Engine extension library and install trusted custom extensions.
 
-## is compiled? and is TurboWarp or 02Engine? {#is-compiled}
+## is compiled? and is 02Engine? {#is-compiled}
 
 ![is compiled?](./assets/is-compiled.svg)
 
@@ -18,7 +18,7 @@ See https://scratch.mit.edu/projects/414716080/
 These blocks are "compatible" with Scratch because they're actually just modified argument reporters.
 
 :::warning
-Every block beyond this warning is **incompatible** with Scratch. Projects that use them **cannot** be uploaded to the Scratch website. If you don't use any TurboWarp exclusive blocks, then there should be no issue with making your project in TurboWarp and uploading it to Scratch.
+Every block beyond this warning is **incompatible** with Scratch. Projects that use them **cannot** be uploaded to the Scratch website. If you do not use any 02Engine-exclusive blocks, then Scratch compatibility depends on the other extensions and settings used by your project.
 :::
 
 ## last key pressed {#last-key-pressed}

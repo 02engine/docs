@@ -1,84 +1,86 @@
 ---
 slug: /convert-cli
-title: Convert Sb3 files to executable CLI
+title: Convert SB3 to CLI
 hide_table_of_contents: false
 ---
 
-# Convert Sb3 files to executable CLI
-1.https://packager.02engine.org/
+# Convert SB3 Files to a CLI App
 
-2.select your project
+The 02Engine Packager can export a Scratch project as a Node.js command line application. This is useful for automated tasks, server-side experiments, simulations, and tests that do not need a graphical stage.
 
-3.`Environment->Other environments->Node.js CLI`
+## Export
 
-Node.js CLI runs your Scratch project directly in Node.js environment using scratch-vm. This is intended for server-side execution, automated testing, or batch processing tasks.
+1. Open [02Engine Packager](https://packager.02engine.org/).
+2. Select your `.sb3` project.
+3. Open **Environment**.
+4. Choose **Other environments > Node.js CLI**.
+5. Package and download the result.
+
+## Why Use CLI Mode
+
+CLI mode runs the project with scratch-vm in a Node.js environment.
 
 Advantages:
 
-- Small file size (~20-30MB vs ~100MB for Electron)
-- Fast startup (no browser overhead)
-- Direct event monitoring
-Command Line Arguments:
+- Smaller output than Electron-style desktop packaging.
+- Faster startup because no browser window is created.
+- Easier automation from scripts or CI.
+- Direct console input/output.
 
-You can pass arguments to your application like this:
+Limitations:
 
-`app.exe your-project.sb3 --arg1 value1 --arg2 value2 --flag`
+- No graphical stage output.
+- Mouse and keyboard interactions are limited or unavailable.
+- Audio playback may be limited depending on the runtime environment.
+- Some extensions expect browser APIs and may not work.
 
-CLI API Available:
+## Command Line Arguments
 
-In CLI mode, you can use the following JavaScript functions in your Scratch project:
+After packaging, run the app with arguments:
 
-- You can use a `say` block to output text to the console
+```bash
+app.exe your-project.sb3 --mode test --count 5 --flag
+```
 
-- You can use a `ask` block to prompt the user for input
+CLI projects can read those arguments from JavaScript-enabled blocks or extension code through the CLI helper APIs exposed by the packaged runtime.
 
-- cli.log(message) - Output text to console
-- cli.error(message) - Output error to console
-- cli.warn(message) - Output warning to console
-- cli.info(message) - Output info to console
-- cli.exit(code) - Exit the application (0 = success, non-zero = error)
-- cli.getArgs() - Get all command line arguments as an object
-- cli.getArg(key) - Get a specific command line argument by key
-Example Usage:
-```javascript
-// Get command line arguments
+## CLI Helper API
+
+The packaged CLI runtime can expose helper functions such as:
+
+| API | Description |
+| --- | --- |
+| `cli.log(message)` | Print normal output. |
+| `cli.error(message)` | Print error output. |
+| `cli.warn(message)` | Print warning output. |
+| `cli.info(message)` | Print informational output. |
+| `cli.exit(code)` | Exit with a numeric status code. |
+| `cli.getArgs()` | Return all parsed command line arguments. |
+| `cli.getArg(key)` | Return one argument by key. |
+
+Scratch `say` and `ask` behavior may also be mapped to console output/input in the packaged CLI environment.
+
+## Example
+
+```js
 const args = cli.getArgs();
 cli.log('Arguments:', args);
 
-// Get specific argument
-const mode = cli.getArg('mode');
-if (mode === 'test') {
+if (cli.getArg('mode') === 'test') {
   cli.log('Running in test mode');
 }
 
-// Exit with success code
 cli.exit(0);
-Packaging Instructions:
 ```
-After downloading the package:
 
-Extract the ZIP file to a folder
+## Building The Downloaded Package
 
-Install Node.js (version 18 or higher)
+After downloading:
 
-Open a terminal/command prompt in the extracted folder
+1. Extract the zip file.
+2. Install Node.js 18 or newer.
+3. Open a terminal in the extracted folder.
+4. Install dependencies.
+5. Build the executable.
 
-Run `npm install` to install dependencies
-
-Run `npm run build` to create the executable
-
-The executable will be created in the same folder
-
-Simply run the executable - no external SB3 file needed!
-
-Important: Node.js CLI mode:
-
-No graphical output - project runs in headless mode
-
-Mouse and keyboard interactions will not work
-
-Audio playback may be limited
-
-Some extensions may not be compatible
-
-Perfect for automated testing, server-side execution, or background tasks
+The exact install/build commands depend on the packager template version. Follow the README included inside the generated package.

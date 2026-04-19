@@ -3,20 +3,22 @@ module.exports = {
     'intro',
     {
       type: 'category',
-      label: '⭐02Engine',
+      label: '02Engine Editor',
       collapsed: false,
       items: [
-        'website/direct-javascript-coding',
+        'website/new-ui',
+        'website/editor-windows',
+        'website/extension-library',
+        'website/background-settings',
         'website/extension-debugger',
-        'website/opf',
+        'website/direct-javascript-coding',
+        'website/return',
         'website/custom-default-project',
         'website/custom-addon',
-        'website/new-ui',
+        'website/opf',
         'website/convert-cli'
       ]
     },
-    'website/unshared-projects',
-    'website/cloud-variables',
     {
       type: 'category',
       label: 'Advanced Settings',
@@ -34,20 +36,31 @@ module.exports = {
         'website/settings/disable-compiler'
       ]
     },
-    'website/new-compiler',
-    'website/embedding',
-    'website/how-it-works',
-    'website/javascript',
-    'website/return',
-    'website/cors',
-    'website/turbowarp-blocks',
-    'website/translate',
-    'website/url-parameters',
-    'website/scratch-accounts',
-    'website/donate',
+    {
+      type: 'category',
+      label: 'Compatibility and Web',
+      collapsed: false,
+      items: [
+        'website/unshared-projects',
+        'website/cloud-variables',
+        'website/new-compiler',
+        'website/embedding',
+        'website/how-it-works',
+        'website/javascript',
+        'website/cors',
+        'website/turbowarp-blocks',
+        'website/url-parameters',
+        'website/scratch-accounts',
+        'website/translate',
+        'website/donate'
+      ]
+    }
   ],
   development: [
     'development/home',
+    'development/getting-started',
+    'development/architecture',
+    'development/addons',
     {
       type: 'category',
       label: 'Custom Extension Tutorial',
@@ -64,10 +77,9 @@ module.exports = {
         'development/extensions/hats',
         'development/extensions/compatibility',
         'development/extensions/share',
-        'development/extensions/wrapping-up',
+        'development/extensions/wrapping-up'
       ]
     },
-    'development/getting-started',
     'development/globals',
     'development/scratchx'
   ],
@@ -77,6 +89,6 @@ module.exports = {
     'packager/commercial-use',
     'packager/dynamic-stage-resize',
     'packager/special-cloud-behaviors',
-    'packager/offline',
+    'packager/offline'
   ]
 };
