@@ -18,6 +18,7 @@ This documentation is written for 02Engine specifically. Some compatibility page
 - [Custom reporters](./website/return.md): enable custom blocks that return values.
 - [Direct JavaScript coding](./website/direct-javascript-coding.md): run JavaScript from `#code` comments on hat blocks.
 - [Extension debugger](./website/extension-debugger.md): connect the editor to the 02Engine VSCode Toolbox server.
+- [Packager precompile mode](./packager/precompile-scripts.md): package projects with precompiled scripts and stripped block source.
 - [Development guide](./development/getting-started.md): build the 02Engine repositories using Bun.
 
 ## What Makes 02Engine Different

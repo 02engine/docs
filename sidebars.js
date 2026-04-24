@@ -86,6 +86,7 @@ module.exports = {
   ],
   packager: [
     'packager/home',
+    'packager/precompile-scripts',
     'packager/embedding',
     'packager/commercial-use',
     'packager/dynamic-stage-resize',
