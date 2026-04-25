@@ -15,4 +15,4 @@ This is the place where some extra documentation goes. Use the sidebar on the le
 
 Notable 02Engine-specific options include:
 
-- [Precompile scripts into package](./precompile-scripts.md): compile scripts during packaging, keep runtime data, and strip normal block source from the packaged output.
+- [Precompile scripts into package](./precompile-scripts.md): compile scripts during packaging, keep runtime data, strip normal block source from the packaged output, and optionally obfuscate the precompiled JavaScript with adjustable strength.

@@ -22,6 +22,38 @@ With **Precompile scripts into package** enabled, packaging does extra work ahea
 
 In other words, the final package keeps the runtime data needed to run the project, but does not keep the original block graph as editable source.
 
+## Optional: obfuscate precompiled JavaScript
+
+When **Precompile scripts into package** is enabled, 02Engine can also enable:
+
+- **Obfuscate precompiled JavaScript**
+
+This option only affects the precompiled script factories stored in the compiled-project bundle. It does not change costumes, sounds, or the normal asset files.
+
+When enabled, the packager runs an additional JavaScript obfuscation step on the precompiled script code before export. This makes the generated runtime script factories harder to read and recover compared to plain precompiled output.
+
+### Obfuscation strength
+
+02Engine provides three obfuscation strength levels:
+
+- **Light**: lowest packaging overhead and lowest runtime impact
+- **Balanced**: recommended default for most projects
+- **Strong**: heavier obfuscation, but may increase packaging time and reduce runtime performance in some projects
+
+If your packaged project becomes noticeably slower after enabling obfuscation, switch from **Strong** to **Balanced** or **Light** first.
+
+### Progress feedback during packaging
+
+When obfuscation is enabled, the packager will show an extra progress stage while it processes compiled scripts.
+
+The progress display shows:
+
+- current processed script count
+- total script count
+- current obfuscation strength
+
+This helps confirm that packaging is still running normally, especially on large projects where obfuscation may take a while.
+
 ## What changes in the output
 
 When this option is enabled, packaged zip-style outputs include:
@@ -37,6 +69,8 @@ Single-file HTML output works the same way internally. Instead of loading only t
 - the compiled project bundle
 
 At runtime the page uses `loadCompiledProject(...)` instead of the normal `loadProject(...)` path.
+
+If JavaScript obfuscation is also enabled, the compiled script factories inside `compiled-project.json` are further transformed before export.
 
 ## What stays in the package
 
@@ -78,6 +112,11 @@ You can inspect a packaged output and look for these signs:
 - `project.zip` contains `project.json`, but `targets[].blocks` are empty
 - `compiled-project.json` contains compiled target entries with script or procedure factory source
 
+If JavaScript obfuscation is enabled, you can also expect:
+
+- the compiled script factory source to be much less readable than plain precompiled output
+- `compiled-project.json` to include obfuscation metadata
+
 If those are present, the package is using the precompiled runtime path instead of the normal source-block path.
 
 ## Limitations
@@ -90,5 +129,11 @@ You should test packaged output carefully if your project:
 - depends on unusual runtime settings
 - depends on edge-case project metadata
 - must match non-precompiled builds exactly
+
+For obfuscated precompiled packages, you should also test carefully if your project:
+
+- is very large
+- is performance-sensitive
+- already runs close to the browser's performance limits
 
 If a project behaves differently, turn the option off and compare the normal package to the precompiled package first.
