@@ -87,6 +87,7 @@ module.exports = {
   packager: [
     'packager/home',
     'packager/precompile-scripts',
+    'packager/private-scratch-global',
     'packager/embedding',
     'packager/commercial-use',
     'packager/dynamic-stage-resize',

@@ -137,3 +137,11 @@ For obfuscated precompiled packages, you should also test carefully if your proj
 - already runs close to the browser's performance limits
 
 If a project behaves differently, turn the option off and compare the normal package to the precompiled package first.
+
+## Related option
+
+If your packaged project also uses unsandboxed custom extensions, see:
+
+- [Private Scratch global for unsandboxed extensions](./private-scratch-global.md)
+
+That option is separate from precompilation. It focuses on reducing how much Scratch runtime state remains exposed on the packaged host page while preserving unsandboxed extension compatibility.
