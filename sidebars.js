@@ -11,6 +11,7 @@ module.exports = {
         'website/extension-library',
         'website/background-settings',
         'website/extension-debugger',
+        'website/02agent-addon',
         'website/direct-javascript-coding',
         'website/return',
         'website/custom-default-project',
