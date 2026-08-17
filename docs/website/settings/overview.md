@@ -16,6 +16,7 @@ Advanced Settings expose runtime, compiler, editor, and layout controls that nor
 - **Interpolation** visually smooths sprite motion between runtime steps.
 - **High Quality Pen** improves pen rendering quality.
 - **Skip Offscreen Sprite Rendering** skips safe fully offscreen sprite and clone draw calls during the normal stage render pass.
+- **Use Canvas renderer for the blocks workspace** paints the main blocks editor with Canvas and viewport-based geometry while keeping Blockly's complete block graph and editing behavior.
 - **Warp Timer** prevents long warp scripts from locking the runtime forever, at a performance cost.
 
 ## Remove Limits
@@ -38,6 +39,10 @@ This section connects the editor to the local extension debugging server. See [E
 ## Background Settings
 
 This section uploads and configures a local editor background image. See [Background Settings](../background-settings.md).
+
+## Canvas Blocks Renderer
+
+This section controls the optional Canvas renderer for the blocks workspace. See [Canvas Blocks Renderer](./canvas-block-renderer.md).
 
 ## Local Settings vs Project Settings
 
