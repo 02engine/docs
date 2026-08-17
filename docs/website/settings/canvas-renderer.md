@@ -1,5 +1,5 @@
 ---
-slug: /canvas-block-renderer
+slug: /canvas-renderer
 title: Canvas Blocks Renderer
 hide_table_of_contents: false
 ---
@@ -122,4 +122,3 @@ not change how scripts execute and does not remove blocks from the project.
 Always test projects that rely on SVG-specific addon behavior with the renderer
 mode you intend to use.
 :::
-

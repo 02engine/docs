@@ -42,7 +42,7 @@ This section uploads and configures a local editor background image. See [Backgr
 
 ## Canvas Blocks Renderer
 
-This section controls the optional Canvas renderer for the blocks workspace. See [Canvas Blocks Renderer](./canvas-block-renderer.md).
+This section controls the optional Canvas renderer for the blocks workspace. See [Canvas Blocks Renderer](./canvas-renderer.md).
 
 ## Local Settings vs Project Settings
 
